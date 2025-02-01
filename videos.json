@@ -1,0 +1,106 @@
+{
+  "saisons": [
+    {
+      "id": 1,
+      "titre": "Saison 1",
+      "episodes": [
+        {
+          "id": 1,
+          "titre": "Épisode 1",
+          "videoUrl": "https://drive.google.com/file/d/1tpxcjCuy_6dC3sBaEV0_pAwB9GyTdIeC/preview"
+        },
+        {
+          "id": 2,
+          "titre": "Épisode 2",
+          "videoUrl": "https://drive.google.com/file/d/18KreK_nOGK5yPdJQv6lKHjeVfLKys6FB/preview"
+        },
+        {
+          "id": 3,
+          "titre": "Épisode 3",
+          "videoUrl": "https://drive.google.com/file/d/1O-vdUlvkR3_x0lFolmKO8SIK9_LRXxj_/preview"
+        },
+        {
+          "id": 4,
+          "titre": "Épisode 4",
+          "videoUrl": "https://drive.google.com/file/d/1E5RszOgAuqN5JeR81Td8RsDq1sKK3sug/preview"
+        },
+        {
+          "id": 5,
+          "titre": "Épisode 5",
+          "videoUrl": "https://drive.google.com/file/d/1AXZb2VkA9HSme587OBwr-Of40Z5kbmJF/preview"
+        },
+        {
+          "id": 6,
+          "titre": "Épisode 6",
+          "videoUrl": "https://drive.google.com/file/d/1OSPmbEk5AnMVnhBIyfzxQSxWX2uXGbwE/preview"
+        },
+        {
+          "id": 7,
+          "titre": "Épisode 7",
+          "videoUrl": "https://drive.google.com/file/d/1BI-P9qF4CPNso5LKBpAM-XwOotkIT9IW/preview"
+        },
+        {
+          "id": 8,
+          "titre": "Épisode 8",
+          "videoUrl": "https://drive.google.com/file/d/1tmj2KZYMP76GmlfAoBEgnIVJ43YkR_tt/preview"
+        },
+        {
+          "id": 9,
+          "titre": "Épisode 9",
+          "videoUrl": "https://drive.google.com/file/d/1JpfZIR_3Z03YYYEpXgu8_mH001wdWwpL/preview"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titre": "Saison 2",
+      "episodes": [
+        {
+          "id": 1,
+          "titre": "Épisode 1",
+          "videoUrl": "https://drive.google.com/file/d/1sKcM2eDEuJNTjvx1N2NOkvIsoZ8UiZ1Z/preview"
+        },
+        {
+          "id": 2,
+          "titre": "Épisode 2",
+          "videoUrl": "https://drive.google.com/file/d/1tpL195-VuQyZuj37lwb2veKnsaLoI64l/preview"
+        },
+        {
+          "id": 3,
+          "titre": "Épisode 3",
+          "videoUrl": "https://drive.google.com/file/d/14R-T9qCqoXQbJtKYH45_ou14oyc_SjCL/preview"
+        },
+        {
+          "id": 4,
+          "titre": "Épisode 4",
+          "videoUrl": "https://drive.google.com/file/d/1KmN47WoEAs_dlXT97vS6ktMEKYkksZ4E/preview"
+        },
+        {
+          "id": 5,
+          "titre": "Épisode 5",
+          "videoUrl": "https://drive.google.com/file/d/1ye-GbQSqEuYYT5euap4ochbXEsUhSUXt/preview"
+        },
+        {
+          "id": 6,
+          "titre": "Épisode 6",
+          "videoUrl": "https://drive.google.com/file/d/15yTLEUlN7t-mOtHFX0evcz9VsQGQJJZT/preview"
+        },
+        {
+          "id": 7,
+          "titre": "Épisode 7",
+          "videoUrl": "https://drive.google.com/file/d/1Jpk3IFs9yAc4eBCJIQoZ72j3IeaqJ1Fc/preview"
+        },
+        {
+          "id": 8,
+          "titre": "Épisode 8",
+          "videoUrl": "https://drive.google.com/file/d/120fmWsjDdvpoaRAWY9fUhOTVgbhd5TfK/preview"
+        },
+        {
+          "id": 9,
+          "titre": "Épisode 9",
+          "videoUrl": "https://drive.google.com/file/d/1vXWQNtxgzWvKJeG1fGMNPuidNz4BKI4W/preview"
+        }
+      ]
+    }
+  ]
+}

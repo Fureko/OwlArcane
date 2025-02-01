@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazbin Hotel</title>
+  <style>
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/Gotham.woff2') format('woff2'),
+           url('fonts/Gotham.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      background-image: url('Fond.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #EEEEEE;
+      font-family: Gotham, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .content-box {
+      background-color: rgba(0, 31, 58, 0.69);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      max-width: 415px;
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      margin-bottom: 20px;
+    }
+
+    select {
+      background-color: #0d82a1;
+      color: #EEEEEE;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 4px;
+      font-family: Gotham, sans-serif;
+    }
+
+    select:hover {
+      background-color: #1a1679;
+    }
+
+    /* Carte vidéo */
+    .video-card {
+      background-color: rgba(0, 26, 58, 0.85);
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      max-width: 800px;
+      width: 90%;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 8px;
+      max-width: 100%;
+      display: block;
+      margin: auto;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .logo {
+        width: 300px;
+      }
+
+      .content-box, .video-card {
+        font-size: 24px;
+        padding: 15px;
+        width: 95%;
+      }
+
+      select {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .video-card iframe {
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 200px;
+      }
+
+      .content-box, .video-card {
+        font-size: 18px;
+        padding: 10px;
+        width: 95%;
+      }
+
+      select {
+        font-size: 12px;
+        padding: 6px;
+      }
+
+      .video-card iframe {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-box">
+    <img src="Hazbin-Hotel-Logo.png" alt="Hazbin Hotel Logo" class="logo">
+    <div class="controls">
+      <!-- Sélecteur pour la saison -->
+      <select id="saison-select"></select>
+
+      <!-- Sélecteur pour l'épisode -->
+      <select id="episode-select"></select>
+    </div>
+  </div>
+
+  <!-- Conteneur de la carte vidéo -->
+  <div class="video-card">
+    <div id="video-target"></div>
+  </div>
+
+  <script>
+    let videoData = {};
+
+    const saisonSelect = document.getElementById('saison-select');
+    const episodeSelect = document.getElementById('episode-select');
+    const videoTarget = document.getElementById('video-target');
+
+    fetch('videos.json')
+      .then(response => response.json())
+      .then(data => {
+        videoData = data;
+        populateSaisonSelect(videoData.saisons);
+        if (videoData.saisons.length > 0) {
+          populateEpisodeSelect(videoData.saisons[0].episodes);
+          loadVideo(videoData.saisons[0].episodes[0].videoUrl);
+        }
+      })
+      .catch(error => console.error('Erreur lors du chargement du JSON:', error));
+
+    function populateSaisonSelect(saisons) {
+      saisonSelect.innerHTML = saisons.map(saison => `<option value="${saison.id}">${saison.titre}</option>`).join('');
+    }
+
+    function populateEpisodeSelect(episodes) {
+      episodeSelect.innerHTML = episodes.map(ep => `<option value="${ep.id}">${ep.titre}</option>`).join('');
+    }
+
+    function loadVideo(videoUrl) {
+      videoTarget.innerHTML = `<iframe src="${videoUrl}" allowfullscreen></iframe>`;
+    }
+
+    saisonSelect.addEventListener('change', () => {
+      const selectedSaisonId = parseInt(saisonSelect.value);
+      const selectedSaison = videoData.saisons.find(saison => saison.id === selectedSaisonId);
+      if (selectedSaison) {
+        populateEpisodeSelect(selectedSaison.episodes);
+        loadVideo(selectedSaison.episodes[0].videoUrl);
+      }
+    });
+
+    episodeSelect.addEventListener('change', () => {
+      const selectedSaisonId = parseInt(saisonSelect.value);
+      const selectedSaison = videoData.saisons.find(saison => saison.id === selectedSaisonId);
+      const selectedEpisodeId = parseInt(episodeSelect.value);
+      if (selectedSaison) {
+        const selectedEpisode = selectedSaison.episodes.find(ep => ep.id === selectedEpisodeId);
+        if (selectedEpisode) {
+          loadVideo(selectedEpisode.videoUrl);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
